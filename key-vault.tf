@@ -1,6 +1,6 @@
 module "vault" {
   source = "git@github.com:hmcts/cnp-module-key-vault.git?ref=master"
-  name = "snl-${var.env}"
+  name = "${var.raw_product}}-${var.env}"
   product = "${var.product}"
   env = "${var.env}"
   tenant_id = "${var.tenant_id}"
