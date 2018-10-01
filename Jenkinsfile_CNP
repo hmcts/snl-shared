@@ -1,0 +1,21 @@
+#!groovy
+//noinspection GroovyUnusedAssignment
+@Library("Infrastructure") _
+
+import uk.gov.hmcts.contino.Environment
+
+Environment environment = new Environment(env)
+
+slackChannel = "#snl-master-builds"
+
+onMaster {
+    try {
+        sharedInfrastructurePipeline('snl', environment.nonProdName, 'nonprod')
+        sharedInfrastructurePipeline('snl', environment.demoName, 'nonprod')
+        //sharedInfrastructurePipeline('snl', environment.prodName, 'prod')
+        notifyBuildFixed channel: slackChannel
+    } catch (err) {
+        notifyBuildFailure channel: slackChannel
+        throw err
+    }
+}
