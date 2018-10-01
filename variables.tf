@@ -6,7 +6,7 @@ variable "product" {
 }
 
 variable "raw_product" {
-  default               = "snl" // jenkins-library overrides product for PRs and adds e.g. pr-118-snl
+  default      = "snl" // jenkins-library overrides product for PRs and adds e.g. pr-118-snl
 }
 
 variable "component" {
