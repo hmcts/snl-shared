@@ -29,12 +29,12 @@ resource "random_string" "frontend_jwt_secret" {
 
 resource "azurerm_key_vault_secret" "s2s_jwt_secret" {
   name      = "s2s_jwt_secret"
-  value     = "${random_string.s2s_jwt_secret}"
+  value     = "${random_string.s2s_jwt_secret.result}"
   vault_uri = "${module.vault.key_vault_uri}"
 }
 
 resource "azurerm_key_vault_secret" "frontend_jwt_secret" {
   name      = "frontend_jwt_secret"
-  value     = "${random_string.frontend_jwt_secret}"
+  value     = "${random_string.frontend_jwt_secret.result}"
   vault_uri = "${module.vault.key_vault_uri}"
 }
