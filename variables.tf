@@ -34,6 +34,36 @@ variable "jenkins_AAD_objectId" {
   description = "(Required) The Azure AD object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies."
 }
 
+variable "product_group_object_id" {
+  default = "c9ab670f-8f92-4170-ba08-796ccab27751"
+  decription = "dcd_snl_kv"
+}
+
+// ASP Specific Variables
+variable "asp_capacity" {
+  type    = "string"
+  default = "1"
+}
+
+variable "asp_sku_size" {
+  type    = "string"
+  default = "I1"
+}
+
+// AppInsights
+// as of now, UK South is unavailable for Application Insights
+variable "appinsights_location" {
+  type        = "string"
+  default     = "West Europe"
+  description = "Location for Application Insights"
+}
+
+variable "application_type" {
+  type        = "string"
+  default     = "Web"
+  description = "Type of Application Insights (Web/Other)"
+}
+
 // TAG SPECIFIC VARIABLES
 variable "team_name" {
   type        = "string"
@@ -47,8 +77,8 @@ variable "team_contact" {
   default     = "#snl-devs"
 }
 
+// Other
 variable "destroy_me" {
   type        = "string"
-  description = "Here be dragons! In the future if this is set to Yes then automation will delete this resource on a schedule. Please set to No unless you know what you are doing"
-  default     = "No"
+  default     = "false"
 }
