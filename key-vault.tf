@@ -14,8 +14,6 @@ resource "random_string" "s2s_jwt_secret" {
   number = true
   lower = true
   upper = true
-  special = true
-  override_special = "/@\" "
 }
 
 resource "random_string" "frontend_jwt_secret" {
@@ -23,8 +21,6 @@ resource "random_string" "frontend_jwt_secret" {
   number = true
   lower = true
   upper = true
-  special = true
-  override_special = "/@\" "
 }
 
 resource "azurerm_key_vault_secret" "s2s_jwt_secret" {
