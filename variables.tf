@@ -43,7 +43,7 @@ variable "asp_capacity" {
 
 variable "asp_sku_size" {
   type    = "string"
-  default = "I1"
+  default = "I2"
 }
 
 // AppInsights
